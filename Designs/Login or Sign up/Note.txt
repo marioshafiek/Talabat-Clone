@@ -1,4 +1,0 @@
-Fonts : 
-Talabat logo : Arial Rounded MT Bold
-
-Login & SignUP : Cairo bold

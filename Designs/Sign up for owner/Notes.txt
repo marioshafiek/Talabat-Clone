@@ -1,6 +1,0 @@
-Fonts to use 
-
-Talabat logo : Arial Rounded MT Bold 
-Log in  : Cairo bold 
-
-Palettes color in folder 

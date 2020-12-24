@@ -1,7 +1,0 @@
-Fonts to use 
-
-Talabat logo : Arial Rounded MT Bold 
-
-Sign up : Cairo bold 
-
-Palettes color in folder 
