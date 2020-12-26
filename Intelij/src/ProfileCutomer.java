@@ -1,10 +1,15 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class ProfileCutomer extends JFrame {
 
+    // Declaration
     JPanel panel ;
-    JLabel talabat, customerName, latestOrder, Username, Address, Mobilenumber, BG, ProfileImg , BGInfo , BGOrder;
+    JLabel talabat, customerName,  latestOrder, Username, Address, Mobilenumber, BG, ProfileImg , BGInfo , BGOrder;
     JTextField custName, address, mobileNumber;
     JButton submit;
     JSeparator sep1 , sep2 , sep3;
@@ -21,7 +26,7 @@ public class ProfileCutomer extends JFrame {
         this.setSize(1080,750);
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setTitle("Profile");
+        this.setTitle("Customer Profile");
         this.setResizable(false);
         this.setLocation(200,70);
 
@@ -54,6 +59,8 @@ public class ProfileCutomer extends JFrame {
         sep2 = new JSeparator();
         sep3 = new JSeparator();
 
+        // End initialize
+
         //Set Layout
         this.setLayout(null);
 
@@ -62,10 +69,13 @@ public class ProfileCutomer extends JFrame {
 
         //Add Talabat logo
         panel.add(talabat);
+
         //Set the position in the screen
         talabat.setBounds(15,15,160,30);
+
         // Set Color for talabat
         talabat.setForeground(Color.decode("#FFFFFF"));
+
         // Set Font for talabat
         talabat.setFont(new Font("Arial Rounded MT Bold" , Font.PLAIN, 35));
 
@@ -95,13 +105,13 @@ public class ProfileCutomer extends JFrame {
 
         //ADD label for mobile number
         panel.add(Mobilenumber);
-        Mobilenumber.setBounds(270,350,250,150);
+        Mobilenumber.setBounds(270,340,250,150);
         Mobilenumber.setFont(new Font("Arial Rounded MT Bold" , Font.PLAIN, 25));
         Mobilenumber.setForeground(Color.BLACK);
 
         //ADD TextField for customer name
         panel.add(custName);
-        custName.setBounds(420,260,250,30);
+        custName.setBounds(420,260,200,30);
         custName.setBorder(null);
         custName.setOpaque(false);
         custName.setFont(new Font("Arial Rounded MT Bold" , Font.PLAIN, 15));
@@ -127,14 +137,14 @@ public class ProfileCutomer extends JFrame {
 
         // ADD text field for mobile number
         panel.add(mobileNumber);
-        mobileNumber.setBounds(470,412,250,30);
+        mobileNumber.setBounds(470,402,250,30);
         mobileNumber.setBorder(null);
         mobileNumber.setOpaque(false);
         mobileNumber.setFont(new Font("Arial Rounded MT Bold" , Font.PLAIN, 15));
 
         // ADD Separator3
         panel.add(sep3);
-        sep3.setBounds(470,440,350,10);
+        sep3.setBounds(470,430,350,10);
         sep3.setBackground(Color.black);
         sep3.setBorder(null);
 
@@ -145,6 +155,8 @@ public class ProfileCutomer extends JFrame {
         submit.setBorderPainted(false);
         //submit.setFocusPainted(false);
         submit.setContentAreaFilled(false);
+
+
 
         // Add label latest order
         panel.add(latestOrder);
@@ -171,18 +183,12 @@ public class ProfileCutomer extends JFrame {
         BG.setBounds(-2,0,1080,720);
         BG.setIcon(BackGorund);
 
-
-
+        // ADD Events
 
 
 
 
     }
-
-
-
-
-
 
 
 
