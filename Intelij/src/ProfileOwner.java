@@ -122,6 +122,7 @@ public class ProfileOwner extends JFrame {
         SEP1.setBounds(600,320,300,5);
         SEP1.setForeground(Color.BLACK);
 
+
         // Add password text field
         OwnerProfilePanel.add(OwnerPassText);
         OwnerPassText.setBounds(600,380,300,40);
@@ -129,6 +130,7 @@ public class ProfileOwner extends JFrame {
         OwnerPassText.setBorder(null);
         OwnerPassText.setFont(new Font("Arial Rounded MT Bold" , Font.PLAIN, 15));
         OwnerPassText.setForeground(Color.decode("#393737"));
+
 
         // ADD SEPARATOR 2
         OwnerProfilePanel.add(SEP2);

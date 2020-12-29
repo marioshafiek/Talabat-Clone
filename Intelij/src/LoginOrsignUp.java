@@ -1,7 +1,7 @@
 import java.awt.* ;
 import javax.swing.* ;
 
-public class login extends JFrame{
+public class LoginOrsignUp extends JFrame{
     //intialization
 
     JPanel leftpanel = new JPanel() ;
@@ -10,21 +10,21 @@ public class login extends JFrame{
     // l1: talabat , l2 : welcome to talabat
     JLabel l1 , l2  ;
 
-    // rgb : right background ,lbg : left background  ,logbut : login button , signbut: sign up button
+    // rgb : right background , logbut : login button , signbut: sign up button
     JLabel rbg= new JLabel ();
-     JLabel lbg= new JLabel ();
     JButton logbut= new JButton ();
     JButton signbut= new JButton ();
 
-  
+    //color of panel (p1)
+    Color c =new Color(255,69,0) ;
 
     //intialize imageicon to add path of images
     ImageIcon bg = new ImageIcon("Designs/Login or Sign up/Assets/1x/Left BG.PNG");
     ImageIcon login = new ImageIcon("Designs/Login or Sign up/Assets/1x/Login Butt.PNG");
     ImageIcon signup = new ImageIcon("Designs/Login or Sign up/Assets/1x/Sign Butt.PNG");
-    ImageIcon leftbg = new ImageIcon("Designs/Login or Sign up/Assets/2x/Right BG@2x.PNG");
+
     //end intialization
-    public login ()
+    public LoginOrsignUp ()
     {
         l1 = new JLabel("Talabat");
         l2 = new JLabel("Welcome to Talabat");
@@ -40,13 +40,6 @@ public class login extends JFrame{
         //properties of right background
         rbg.setBounds(320, 0, 720, 720);
 
-        
-        //add image (leftbg) to a label (lbg)
-        lbg.setIcon(leftbg);
-        //properties of left background image
-        lbg.setBounds(0, 0, 745, 720);
-        
-        
         //properties of login button
         logbut.setIcon(login);
         logbut.setBorderPainted(false);
@@ -58,7 +51,7 @@ public class login extends JFrame{
         signbut.setBorderPainted(false);
         signbut.setContentAreaFilled(false);
         signbut.setBounds(740, 425, 237, 63);
-        
+
 
 
         //set bounds of left panel , rightpanel
@@ -66,12 +59,12 @@ public class login extends JFrame{
         rightpanel.setLayout(null);
         leftpanel.setLayout(null);
         leftpanel.setBounds(0, 0, 424, 720);
-        
+        leftpanel.setBackground(c);
 
 
         //properties of l1("talabat") , l2 ("welcome to talabat"))
         l1.setBounds(120, 325, 200, 50);
-        l1.setFont(new Font("Arial Rounded MT Bold" , Font.PLAIN, 50));
+        l1.setFont(new Font("verdana",1,45));
         l1.setForeground(Color.WHITE);
         l2.setBounds(520, 250, 450, 50);
         l2.setFont(new Font("verdana",1,35));
@@ -91,7 +84,7 @@ public class login extends JFrame{
         rightpanel.add(logbut);
         rightpanel.add(signbut) ;
         rightpanel.add(rbg) ;
-        leftpanel.add(lbg) ;
+
 
 
     }
