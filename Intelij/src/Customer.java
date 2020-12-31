@@ -5,6 +5,17 @@
  */
 
 
+/**
+ *
+ * @author Pc
+ */
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+
 import java.util.ArrayList;
 
 /**
@@ -15,6 +26,10 @@ public class Customer extends Person{
     private String mob_number;
     private String address;
     private ArrayList<Order> order = new ArrayList<Order>();
+
+    public Customer(String username, String password) {
+        super(username, password);
+    }
 
     public Customer()
     {
@@ -41,26 +56,21 @@ public class Customer extends Person{
     public String getAddress() {
         return address;
     }
-    public boolean validate_login(String username, String passwrod, Person [] p)
+    public boolean validate_login(String username , String password ,ArrayList<Person> persons)
     {
-        /* p is The available accounts of customers */
-        boolean valid = false;
+        /* p is The available accounts of owners */
+        boolean valid = false;//to check the availabilty of the input
+        //loop around the array of the available users that we have wrote
         
-        for(int i = 0;i<3;i++)
+        for(Person p : persons)
         {
-            if(this.getUsername()==p[i].getUsername()&&this.getPassword()==p[i].getPassword())
+            if(this.getUsername()==p.getUsername() &&this.getPassword()==p.getPassword())
             {
                 valid = true;
                 break;
             }
         }
-        if(valid==true)
-        {
-            return true;
-        }
-        else {
-            return false;
-        }
+        return valid;
     }
     public void signUp(String uname,String pass,String mob_number,String address){
         this.signUp(uname, pass);
@@ -72,3 +82,4 @@ public class Customer extends Person{
 
 
 }
+

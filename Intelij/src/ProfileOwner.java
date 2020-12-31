@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class ProfileOwner extends JFrame {
 
@@ -17,7 +19,9 @@ public class ProfileOwner extends JFrame {
     ImageIcon SubmitBut = new ImageIcon("Designs/Profile owner page/Assets/1x/Submit button.png");
     // End declaration
 
-    public ProfileOwner()
+
+    // passed to the parameter the object of owner which i will use in the frame
+    public ProfileOwner(Owner owner)
     {
         //Setup for frame
         this.setSize(1080,750);
@@ -42,7 +46,7 @@ public class ProfileOwner extends JFrame {
         resAddress = new JLabel("Address: ");
         resPhone= new JLabel("Phone: ");
         BackG = new JLabel("Hello");
-        Ownername = new JLabel("Owner name");
+        Ownername = new JLabel(owner.getUsername());
         OwnerBG = new JLabel();
         resInfoBG =new JLabel();
 
@@ -51,7 +55,7 @@ public class ProfileOwner extends JFrame {
         restSubmit = new JButton();
 
         //Initialize password
-        OwnerPassText = new JPasswordField("Enter password");
+        OwnerPassText = new JPasswordField(owner.getPassword());
 
         //Initialize separator
         SEP1 = new JSeparator();
@@ -61,10 +65,10 @@ public class ProfileOwner extends JFrame {
         SEP5= new JSeparator();
 
         //Initialize TextFields
-        OwnerUserText = new JTextField("Enter Text field");
-        resNameText = new JTextField("Restaurant name");
-        resAddressText = new JTextField("Restaurant address");
-        resPhoneText = new JTextField("Restaurant phone");
+        OwnerUserText = new JTextField(owner.getUsername());
+        resNameText = new JTextField(owner.restaurant.getName());
+        resAddressText = new JTextField(owner.restaurant.getAddress());
+        resPhoneText = new JTextField(owner.restaurant.getPhone());
 
         // End initialization
 
@@ -145,6 +149,22 @@ public class ProfileOwner extends JFrame {
         ownerSubmit.setBorderPainted(false);
         ownerSubmit.setFocusPainted(false);
         ownerSubmit.setContentAreaFilled(false);
+
+        //The event of ownerSubmit button , it will update the information of owner when the user click submit
+        ownerSubmit.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //Update the userName of the user
+                owner.setUsername(OwnerUserText.getText());
+                //Update the password of the user
+                owner.setPassword(OwnerPassText.getText());
+                System.out.println(owner.getUsername());
+                System.out.println(owner.getPassword());
+                //Update the user name which appear in the screen under the photo
+                Ownername.setText(owner.getUsername());
+
+            }
+        });
 
         //Add background for Owner info
         OwnerProfilePanel.add(OwnerBG);
@@ -227,8 +247,18 @@ public class ProfileOwner extends JFrame {
         restSubmit.setFocusPainted(false);
         restSubmit.setContentAreaFilled(false);
 
-
-
+        // The event of restaurant Submit button .. it will update the information of restaurant when the user click submit
+        restSubmit.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                owner.restaurant.setName(resNameText.getText());
+                owner.restaurant.setAddress(resAddressText.getText());
+                owner.restaurant.setPhone(resPhoneText.getText());
+                System.out.println(owner.restaurant.getName());
+                System.out.println(owner.restaurant.getAddress());
+                System.out.println(owner.restaurant.getPhone());
+            }
+        });
 
 
         //Add background for restaurant
@@ -237,19 +267,14 @@ public class ProfileOwner extends JFrame {
         resInfoBG.setIcon(restaurantBG);
 
 
-
-
-
-
-
         // Add Background
         OwnerProfilePanel.add(BackG);
         BackG.setBounds(0,0,1080,720);
         BackG.setIcon(BG);
 
 
-
     }
+
 
 
 }

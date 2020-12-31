@@ -1,100 +1,162 @@
 import java.awt.* ;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.* ;
 
-public class login extends JFrame{
-    //intialization
-
+public class Login extends JFrame{
     JPanel leftpanel = new JPanel() ;
     JPanel rightpanel = new JPanel() ;
+    JLabel llogo , llogin , lusername , lpassword ;
+    JButton loginbut= new JButton ();
+    JTextField tuser = new JTextField(" Enter Username") ;
+    JPasswordField tpass = new JPasswordField("password") ;
 
-    // l1: talabat , l2 : welcome to talabat
-    JLabel l1 , l2  ;
 
-    // rgb : right background ,lbg : left background  ,logbut : login button , signbut: sign up button
-    JLabel rbg= new JLabel ();
-     JLabel lbg= new JLabel ();
-    JButton logbut= new JButton ();
-    JButton signbut= new JButton ();
+    // color of left panel
+    Color c =new Color(255,69,0) ;
 
-  
 
-    //intialize imageicon to add path of images
-    ImageIcon bg = new ImageIcon("Designs/Login or Sign up/Assets/1x/Left BG.PNG");
-    ImageIcon login = new ImageIcon("Designs/Login or Sign up/Assets/1x/Login Butt.PNG");
-    ImageIcon signup = new ImageIcon("Designs/Login or Sign up/Assets/1x/Sign Butt.PNG");
-    ImageIcon leftbg = new ImageIcon("Designs/Login or Sign up/Assets/2x/Right BG@2x.PNG");
-    //end intialization
-    public login ()
+    Color clabel  =new Color(0,0,60) ;
+    Color tborder = new Color(255,238,229) ;
+
+    //label for person image ,circle iamge
+    JLabel lpersonimage =new JLabel() ;
+    JLabel lcircleimage =new JLabel() ;
+
+    //images path
+    ImageIcon login = new ImageIcon("Designs/Login page assets/Assets/Size 1X/Login Butt.PNG");
+    ImageIcon person = new ImageIcon("Designs/Login page assets/Assets/Size 1X/Character.PNG");
+    ImageIcon circle = new ImageIcon("Designs/Login page assets/Assets/Size 1X/Circle under character.PNG");
+
+    JSeparator sep1 = new JSeparator();
+    JSeparator sep2 = new JSeparator();
+
+    public Login()
     {
-        l1 = new JLabel("Talabat");
-        l2 = new JLabel("Welcome to Talabat");
-        //set properties of frame
+        llogo = new JLabel("Talabat");
+        llogin = new JLabel("Login");
+        lusername = new JLabel("Username");
+        lpassword = new JLabel("Password");
         this.setTitle("Talabat");
-        this.setSize(1024 , 720);
+        this.setSize(1024, 720);
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setResizable(false);
-
-        //add image (bg) to a label (rbg)
-        rbg.setIcon(bg);
-        //properties of right background
-        rbg.setBounds(320, 0, 720, 720);
-
-        
-        //add image (leftbg) to a label (lbg)
-        lbg.setIcon(leftbg);
-        //properties of left background image
-        lbg.setBounds(0, 0, 745, 720);
-        
-        
-        //properties of login button
-        logbut.setIcon(login);
-        logbut.setBorderPainted(false);
-        logbut.setContentAreaFilled(false);
-        logbut.setBounds(465, 425, 237, 61);
-
-        // properties
-        signbut.setIcon(signup);
-        signbut.setBorderPainted(false);
-        signbut.setContentAreaFilled(false);
-        signbut.setBounds(740, 425, 237, 63);
-        
 
 
-        //set bounds of left panel , rightpanel
-        rightpanel.setBounds(424, 0, 600, 720);
+        loginbut.setIcon(login);
+        loginbut.setBorderPainted(false);
+        loginbut.setContentAreaFilled(false);
+        loginbut.setBounds(630, 480, 238, 66);
+
+        //Event of login button .. when the user click login button .. it will check if the user already exist or no
+        loginbut.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                Boolean validation = false;
+                if(customerOrOwner.owner==true)
+                {
+                    System.out.println("Owner");
+                    System.out.println(tuser.getText());
+                    validation = Owner.validate_login(tuser.getText(),tpass.getText());
+                    if(validation==true)
+                    {
+
+                        ProfileOwner pO = new ProfileOwner(Talabat.owners.get(0));
+                    }
+                }
+
+            }
+        });
+
+
+
+        //images properties
+        lpersonimage.setIcon(person);
+        lpersonimage.setBounds(100, 150, 351, 351);
+
+
+        lcircleimage.setIcon(circle);
+        lcircleimage.setBounds(95, 143, 359, 359);
+
+        //words properties
+
+        // properties of right panel , leftapnel
         rightpanel.setLayout(null);
+        rightpanel.setBounds(424, 0, 524, 720);
+        rightpanel.setBackground(tborder);
         leftpanel.setLayout(null);
-        leftpanel.setBounds(0, 0, 424, 720);
-        
+        leftpanel.setBounds(0, 0, 500, 720);
+        leftpanel.setBackground(c);
+        this.setResizable(false);
+        this.setLocation(200,70);
+
+        // logo (talabat) properties
+        llogo.setBounds(15, 15, 200, 50);
+        llogo.setFont(new Font("Arial Rounded MT Bold" , Font.PLAIN, 35));
+        llogo.setForeground(Color.WHITE);
+        llogin.setBounds(690, 80, 450, 100);
+        llogin.setFont(new Font("Cairo" , Font.BOLD,50));
+        llogin.setForeground(Color.decode("#141E73"));
 
 
-        //properties of l1("talabat") , l2 ("welcome to talabat"))
-        l1.setBounds(120, 325, 200, 50);
-        l1.setFont(new Font("Arial Rounded MT Bold" , Font.PLAIN, 50));
-        l1.setForeground(Color.WHITE);
-        l2.setBounds(520, 250, 450, 50);
-        l2.setFont(new Font("verdana",1,35));
-        l2.setForeground(Color.black);
+        lusername.setBounds(575, 225, 450, 50);
+        lusername.setFont(new Font("Arial Rounded MT Bold" , Font.PLAIN,20));
+        lusername.setForeground(clabel);
+
+        lpassword.setBounds(575, 325, 450, 50);
+        lpassword.setFont(new Font("Arial Rounded MT Bold" , Font.PLAIN,20));
+        lpassword.setForeground(clabel);
 
 
 
 
 
+        //text field properties
+        tuser.setBounds(585, 275, 250, 30);
+        tuser.setForeground(Color.gray);
+        tuser.setFont(new Font("Arial Rounded MT Bold" , Font.PLAIN,15));
+        tuser.setBorder(null);
+        tuser.setBackground(tborder);
 
 
+        tpass.setBounds(585, 375, 250, 30);
+        tpass.setForeground(Color.gray);
+        tpass.setFont(new Font("Arial Rounded MT Bold" , Font.PLAIN,15));
+        tpass.setBorder(null);
+        tpass.setBackground(tborder);
 
+
+        sep1.setBounds(585, 304, 250, 20);
+        sep1.setBorder(null);
+        sep1.setBackground(Color.BLACK);
+
+        sep2.setBounds(585, 404, 250, 20);
+        sep2.setBorder(null);
+        sep2.setBackground(Color.BLACK);
+
+        //add components to left panel
         this.add(leftpanel) ;
+        leftpanel.add(llogo) ;
+        leftpanel.add(lpersonimage);
+        leftpanel.add(lcircleimage);
+
+        // add componets to right panel
         this.add(rightpanel) ;
-        leftpanel.add(l1) ;
-        rightpanel.add(l2) ;
-        rightpanel.add(logbut);
-        rightpanel.add(signbut) ;
-        rightpanel.add(rbg) ;
-        leftpanel.add(lbg) ;
+        rightpanel.add(loginbut);
+        rightpanel.add(llogin) ;
+        rightpanel.add(lusername);
+        rightpanel.add(lpassword);
+        rightpanel.add(tuser);
+        rightpanel.add(tpass);
+        rightpanel.add(sep1);
+        rightpanel.add(sep2);
+
 
 
     }
+
 
 
 

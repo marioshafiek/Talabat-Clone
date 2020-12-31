@@ -1,7 +1,9 @@
 import java.awt.* ;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.* ;
 
-public class LoginOrsignUp extends JFrame{
+public class LoginOrsignUp extends JFrame implements ActionListener {
     //intialization
 
     JPanel leftpanel = new JPanel() ;
@@ -34,6 +36,7 @@ public class LoginOrsignUp extends JFrame{
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);
+        this.setLocation(200,70);
 
         //add image (bg) to a label (rbg)
         rbg.setIcon(bg);
@@ -46,11 +49,18 @@ public class LoginOrsignUp extends JFrame{
         logbut.setContentAreaFilled(false);
         logbut.setBounds(465, 425, 237, 61);
 
+        logbut.addActionListener(this);
+
         // properties
         signbut.setIcon(signup);
         signbut.setBorderPainted(false);
         signbut.setContentAreaFilled(false);
         signbut.setBounds(740, 425, 237, 63);
+
+
+
+
+
 
 
 
@@ -74,9 +84,6 @@ public class LoginOrsignUp extends JFrame{
 
 
 
-
-
-
         this.add(leftpanel) ;
         this.add(rightpanel) ;
         leftpanel.add(l1) ;
@@ -90,5 +97,14 @@ public class LoginOrsignUp extends JFrame{
     }
 
 
+    @Override
+    public void actionPerformed(ActionEvent e) {
 
+        if(e.getSource()==logbut)
+        {
+            this.dispose();
+            Login login = new Login();
+        }
+
+    }
 }

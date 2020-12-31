@@ -4,8 +4,18 @@
  * and open the template in the editor.
  */
 
+
+/**
+ *
+ * @author Pc
+ */
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
 import java.util.ArrayList;
-import java.util.Scanner;
 /**
  *
  * @author Pc
@@ -19,6 +29,14 @@ public class Restaurant {
     //setters and getters
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public void setAddress(String address) {
@@ -75,12 +93,20 @@ public class Restaurant {
         }
         meals.remove(Found);
     }
-    public void editMeals(String name, String description, float price){
-
-
-
+    public void editMeals(String oMeal,String newName, String newDescription, float newPrice){
+        int index=0;
+        for(Meal m : meals)
+        {
+            if(oMeal==m.getName())
+            {
+                break;
+            }
+            index++;
         }
-
+        meals.set(index,new Meal(newName,newDescription,newPrice));
     }
+
+}
+
 
 
