@@ -27,7 +27,15 @@ public class Order {
     private String additional_note;
     private String order_date;
     private Meal meal;
+ 
     //setters and getters
+
+    public Order(int quantity, String additional_note, String order_date, Meal meal) {
+        this.quantity = quantity;
+        this.additional_note = additional_note;
+        this.order_date = order_date;
+        this.meal = meal;
+    }
 
 
     public void setQuantity(int quantity) {
@@ -58,6 +66,8 @@ public class Order {
     {
 
     }
+
+
 
 }
 

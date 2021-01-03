@@ -24,6 +24,7 @@ public class Meal {
     private String name;
     private String description;
     private float price;
+    private int ID;
 
     // constructors
     public Meal() {
@@ -59,5 +60,14 @@ public class Meal {
     public float getPrice() {
         return price;
     }
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+    
 }
 

@@ -24,7 +24,7 @@ import java.util.ArrayList;
  */
 public class Owner extends Person{
     Restaurant restaurant = new Restaurant();
-    public static int foundOwner;
+    public static int foundOwner=0;
     //constructors
     public Owner(){
     }
@@ -39,26 +39,36 @@ public class Owner extends Person{
     } 
     
      //the overloaded method from the person class
-    public static boolean validate_login(String Name , String password ) {
+    public static boolean validate_login(String Name , String password) {
         /* p is The available accounts of owners */
         boolean valid = false;//to check the availabilty of the input
         //loop around the array of the available users that we have wrote
         boolean validation = true;
-
-
-        for (int i = 0; i < Talabat.owners.size(); i++) {
+        
+        
+            for (int i = 0; i < Talabat.owners.size(); i++) {
             System.out.println("Found00");
             System.out.println(Talabat.owners.get(i).getUsername());
-            if (Talabat.owners.get(i).getUsername() == "Marioshafiek") {
+            if (Talabat.owners.get(i).getUsername() == "Marioshafiek")
+            
+           {
                 valid = true;
                 System.out.println("Found");
                 foundOwner = i;
                 break;
             }
+            else
+            {
+                System.out.println("Not found yet");
+            }
 
         }
 
         return valid;
+    }
+
+    Owner(String zeyad, String string, String string0, String ahmed_orabiAinShams) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     //the overrided method from the person class 
     public void signUp(String uname,String pass,String restaurant_name){

@@ -20,7 +20,7 @@ public class ProfileCutomer extends JFrame {
     ImageIcon BGForInfo = new ImageIcon("Designs/Porfile customer page asset/Asset/BG 2 for data.png");
 
 
-    public ProfileCutomer()
+    public ProfileCutomer(Customer customer)
     {
         //Setup for frame
         this.setSize(1080,750);
@@ -37,7 +37,7 @@ public class ProfileCutomer extends JFrame {
 
         //Initialize labels
         talabat = new JLabel("Talabat");
-        customerName = new JLabel("Customer name");
+        customerName = new JLabel(customer.getUsername());
         latestOrder = new JLabel("Latest Order");
         Username = new JLabel("Username: ");
         Address = new JLabel("Address: ");
@@ -48,9 +48,9 @@ public class ProfileCutomer extends JFrame {
         //Initialize label for background
         BG = new JLabel();
         //Initialized textFields
-        custName = new JTextField("Enter Username");
-        address = new JTextField("Enter Address");
-        mobileNumber = new JTextField("Enter mobile number");
+        custName = new JTextField(customer.getUsername());
+        address = new JTextField(customer.getAddress());
+        mobileNumber = new JTextField(customer.getMob_number());
         // Initialized buttons
         submit = new JButton ("");
 
@@ -86,7 +86,7 @@ public class ProfileCutomer extends JFrame {
 
         // Add CustomerName label
         panel.add(customerName);
-        customerName.setBounds(440,95,200,200);
+        customerName.setBounds(462,95,400,200);
         customerName.setForeground(Color.decode("#FFFFFF"));
         customerName.setFont(new Font("Arial Rounded MT Bold" , Font.PLAIN, 25));
 
@@ -155,6 +155,19 @@ public class ProfileCutomer extends JFrame {
         submit.setBorderPainted(false);
         //submit.setFocusPainted(false);
         submit.setContentAreaFilled(false);
+        
+        //Add events to submit button 
+        submit.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+               Talabat.customers.get(Customer.foundCustomer).setUsername(custName.getText());
+               customerName.setText(Talabat.customers.get(Customer.foundCustomer).getUsername());
+               Talabat.customers.get(Customer.foundCustomer).setAddress(address.getText());
+               Talabat.customers.get(Customer.foundCustomer).setMob_number(mobileNumber.getText());
+                      
+               
+            }
+        });
 
 
 

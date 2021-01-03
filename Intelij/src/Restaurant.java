@@ -23,9 +23,10 @@ import java.util.ArrayList;
 public class Restaurant {
     private String  name; 
     private String address;
-    private  String phone;
-    private ArrayList<Meal> meals = new ArrayList<Meal>(); /*to get all the meals of the restaurant  */
+    private String phone;
+    private ArrayList<Meal> meals = new ArrayList<Meal>();   /*to get all the meals of the restaurant  */
     private ArrayList<Order> orders = new ArrayList<Order>();
+    private int ID;
     //setters and getters
     public void setName(String name) {
         this.name = name;
@@ -50,6 +51,15 @@ public class Restaurant {
     public String getAddress() {
         return address;
     }
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+    
 
 
     // This function check the name of meal , if it exist, will return
@@ -105,6 +115,22 @@ public class Restaurant {
         }
         meals.set(index,new Meal(newName,newDescription,newPrice));
     }
+    
+    public boolean checkCode(int ID)
+    {
+        boolean valid = true;
+        for(int i=0; i<Talabat.owners.size();i++)
+        {
+            if(Talabat.owners.get(i).restaurant.getID()==ID)
+            {
+                valid = false;
+            }
+            
+        }
+        return valid;
+    }
+    
+   
 
 }
 

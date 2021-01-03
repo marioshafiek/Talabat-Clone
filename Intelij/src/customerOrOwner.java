@@ -88,6 +88,7 @@ public class customerOrOwner extends JFrame implements ActionListener {
         customerbutton.setBorderPainted(false);
         customerbutton.setFocusPainted(false);
         customerbutton.setContentAreaFilled(false);
+        customerbutton.addActionListener(this);
 
         //Add BGIMG
         panel.add(BGphoto);

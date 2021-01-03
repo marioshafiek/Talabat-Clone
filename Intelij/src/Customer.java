@@ -26,6 +26,7 @@ public class Customer extends Person{
     private String mob_number;
     private String address;
     private ArrayList<Order> order = new ArrayList<Order>();
+    public static int foundCustomer = 0;
 
     public Customer(String username, String password) {
         super(username, password);
@@ -56,20 +57,32 @@ public class Customer extends Person{
     public String getAddress() {
         return address;
     }
-    public boolean validate_login(String username , String password ,ArrayList<Person> persons)
-    {
+
+    //the overloaded method from the person class
+    public static boolean validate_login(String Name , String password) {
         /* p is The available accounts of owners */
         boolean valid = false;//to check the availabilty of the input
         //loop around the array of the available users that we have wrote
-        
-        for(Person p : persons)
-        {
-            if(this.getUsername()==p.getUsername() &&this.getPassword()==p.getPassword())
+        boolean validation = true;
+
+
+        for (int i = 0; i < Talabat.customers.size(); i++) {
+            System.out.println("Found00");
+            System.out.println(Talabat.customers.get(i).getUsername());
+            if (Talabat.customers.get(i).getUsername()==Name)
             {
                 valid = true;
+                System.out.println("Found");
+                foundCustomer = i;
                 break;
             }
+            else
+            {
+                System.out.println("NotFound yet");
+            }
+
         }
+
         return valid;
     }
     public void signUp(String uname,String pass,String mob_number,String address){
@@ -77,6 +90,11 @@ public class Customer extends Person{
         this.address=address;
         this.mob_number=mob_number;
 
+    }
+    public void makeOrder()
+    {
+       Order o = new Order();
+        
     }
 
 

@@ -1,3 +1,5 @@
+import org.w3c.dom.ls.LSOutput;
+
 import java.awt.* ;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -7,27 +9,29 @@ import javax.swing.* ;
 public class Login extends JFrame{
     JPanel leftpanel = new JPanel() ;
     JPanel rightpanel = new JPanel() ;
-    JLabel llogo , llogin , lusername , lpassword ;
+    JLabel llogo , llogin , lusername , lpassword , message;
     JButton loginbut= new JButton ();
     JTextField tuser = new JTextField(" Enter Username") ;
-    JPasswordField tpass = new JPasswordField("password") ;
+    JPasswordField tpass = new JPasswordField("Enter password") ;
 
 
     // color of left panel
-    Color c =new Color(255,69,0) ;
+    Color c =new Color(255,69,0);
 
 
     Color clabel  =new Color(0,0,60) ;
-    Color tborder = new Color(255,238,229) ;
+    Color tborder = new Color(255,238,229);
 
     //label for person image ,circle iamge
-    JLabel lpersonimage =new JLabel() ;
-    JLabel lcircleimage =new JLabel() ;
+    JLabel lpersonimage =new JLabel();
+    JLabel lcircleimage =new JLabel();
+    JLabel leftBG = new JLabel();
 
     //images path
     ImageIcon login = new ImageIcon("Designs/Login page assets/Assets/Size 1X/Login Butt.PNG");
     ImageIcon person = new ImageIcon("Designs/Login page assets/Assets/Size 1X/Character.PNG");
     ImageIcon circle = new ImageIcon("Designs/Login page assets/Assets/Size 1X/Circle under character.PNG");
+    ImageIcon BackgroundLeft = new ImageIcon("Designs/Login page assets/Assets/Size 1X/Right BG.PNG");
 
     JSeparator sep1 = new JSeparator();
     JSeparator sep2 = new JSeparator();
@@ -38,6 +42,7 @@ public class Login extends JFrame{
         llogin = new JLabel("Login");
         lusername = new JLabel("Username");
         lpassword = new JLabel("Password");
+        message = new JLabel("");
         this.setTitle("Talabat");
         this.setSize(1024, 720);
         this.setVisible(true);
@@ -57,13 +62,36 @@ public class Login extends JFrame{
                 Boolean validation = false;
                 if(customerOrOwner.owner==true)
                 {
+                    message.setText("");
                     System.out.println("Owner");
                     System.out.println(tuser.getText());
                     validation = Owner.validate_login(tuser.getText(),tpass.getText());
+
                     if(validation==true)
                     {
-
-                        ProfileOwner pO = new ProfileOwner(Talabat.owners.get(0));
+                       dispose();
+                       ProfileOwner pO = new ProfileOwner(Talabat.owners.get(Owner.foundOwner));
+                     
+                    } else
+                    {
+                        System.out.println("NotFound");
+                        message.setText("Username or password invalid");
+                    }
+                }
+                else if(customerOrOwner.owner==false)
+                {
+                    message.setText("");
+                    System.out.println("Customer");
+                    System.out.println(tuser.getText());
+                    validation= Customer.validate_login(tuser.getText(),tpass.getText());
+                    if(validation==true)
+                    {
+                        dispose();
+                        ProfileCutomer pC = new ProfileCutomer(Talabat.customers.get(Customer.foundCustomer));
+                    }
+                    else
+                    {
+                        message.setText("Username or password invalid");
                     }
                 }
 
@@ -74,11 +102,11 @@ public class Login extends JFrame{
 
         //images properties
         lpersonimage.setIcon(person);
-        lpersonimage.setBounds(100, 150, 351, 351);
+        lpersonimage.setBounds(75, 150, 351, 351);
 
 
         lcircleimage.setIcon(circle);
-        lcircleimage.setBounds(95, 143, 359, 359);
+        lcircleimage.setBounds(70, 143, 359, 359);
 
         //words properties
 
@@ -99,6 +127,11 @@ public class Login extends JFrame{
         llogin.setBounds(690, 80, 450, 100);
         llogin.setFont(new Font("Cairo" , Font.BOLD,50));
         llogin.setForeground(Color.decode("#141E73"));
+
+
+        message.setBounds(600,550,350,70);
+        message.setFont(new Font("Arial Rounded MT Bold" , Font.PLAIN,20));
+        message.setForeground(Color.decode("#141E73"));
 
 
         lusername.setBounds(575, 225, 450, 50);
@@ -136,14 +169,17 @@ public class Login extends JFrame{
         sep2.setBorder(null);
         sep2.setBackground(Color.BLACK);
 
+
+
         //add components to left panel
-        this.add(leftpanel) ;
-        leftpanel.add(llogo) ;
+        this.add(leftpanel);
+        leftpanel.add(llogo);
         leftpanel.add(lpersonimage);
         leftpanel.add(lcircleimage);
 
         // add componets to right panel
-        this.add(rightpanel) ;
+        this.add(rightpanel);
+        rightpanel.add(message);
         rightpanel.add(loginbut);
         rightpanel.add(llogin) ;
         rightpanel.add(lusername);
@@ -152,6 +188,7 @@ public class Login extends JFrame{
         rightpanel.add(tpass);
         rightpanel.add(sep1);
         rightpanel.add(sep2);
+
 
 
 
