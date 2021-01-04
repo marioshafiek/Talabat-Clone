@@ -30,7 +30,8 @@ public class Meal {
     public Meal() {
     }
 
-        public Meal(String name, String description, float price) {
+        public Meal(String name, String description, float price) 
+    {
         this.name = name;
         this.description = description;
         this.price = price;

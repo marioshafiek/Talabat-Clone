@@ -20,9 +20,11 @@ public class Main {
         Talabat.owners.add((Owner) o1);
         // add owner 2 to array of owners
         Talabat.owners.add((Owner)o2);
-        //customerOrOwner c = new customerOrOwner();
+        customerOrOwner c = new customerOrOwner();
         //ProfileCutomer c = new ProfileCutomer(Talabat.customers.get(0));
-        ProfileOwner PO = new ProfileOwner(Talabat.owners.get(0));
+        //ProfileOwner PO = new ProfileOwner(Talabat.owners.get(0));
+        
+        
         //Login login = new Login();
         //SignupOwner s = new SignupOwner();
 

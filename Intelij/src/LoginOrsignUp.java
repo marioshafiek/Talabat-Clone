@@ -104,6 +104,7 @@ public class LoginOrsignUp extends JFrame implements ActionListener {
         {
             this.dispose();
             Login login = new Login();
+        
             
         }
 

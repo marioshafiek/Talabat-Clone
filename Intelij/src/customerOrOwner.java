@@ -109,6 +109,7 @@ public class customerOrOwner extends JFrame implements ActionListener {
             owner = true;
             this.dispose();
             LoginOrsignUp los = new LoginOrsignUp();
+   
 
         }
 

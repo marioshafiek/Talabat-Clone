@@ -91,9 +91,18 @@ public class Customer extends Person{
         this.mob_number=mob_number;
 
     }
-    public void makeOrder()
+    public void makeOrder(Meal meal, int quantity, String note, String date)
     {
-       Order o = new Order();
+       Order order = new Order(quantity,note,date,meal);
+       this.order.add(order);
+       for(int i=0; i<Talabat.owners.size();i++)
+       {
+           if(Talabat.owners.get(i).restaurant.getID()==meal.getID())
+           {
+               Talabat.owners.get(i).restaurant.orders.add(order);
+           }
+       }
+       
         
     }
 

@@ -70,8 +70,9 @@ public class Login extends JFrame{
                     if(validation==true)
                     {
                        dispose();
-                       ProfileOwner pO = new ProfileOwner(Talabat.owners.get(Owner.foundOwner));
-                     
+                       //ProfileOwner pO = new ProfileOwner(Talabat.owners.get(Owner.foundOwner));
+                       ProfileOwner PO = new ProfileOwner(Talabat.owners.get(0));
+                       
                     } else
                     {
                         System.out.println("NotFound");

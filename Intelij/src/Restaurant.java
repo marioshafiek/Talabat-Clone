@@ -24,8 +24,8 @@ public class Restaurant {
     private String  name; 
     private String address;
     private String phone;
-    private ArrayList<Meal> meals = new ArrayList<Meal>();   /*to get all the meals of the restaurant  */
-    private ArrayList<Order> orders = new ArrayList<Order>();
+    public ArrayList<Meal> meals = new ArrayList<Meal>();   /*to get all the meals of the restaurant  */
+    public ArrayList<Order> orders = new ArrayList<Order>();
     private int ID;
     //setters and getters
     public void setName(String name) {
@@ -90,7 +90,8 @@ public class Restaurant {
            meals.add(newMeal);// a method in class ArrayList
     }
     //a method to remove the meal
-    public void removeMeal(String name){
+    public void removeMeal(String name)
+    {
         int Found =0;
         for(int i=0; i<meals.size();i++)
         {

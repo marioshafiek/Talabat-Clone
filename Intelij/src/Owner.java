@@ -49,7 +49,7 @@ public class Owner extends Person{
             for (int i = 0; i < Talabat.owners.size(); i++) {
             System.out.println("Found00");
             System.out.println(Talabat.owners.get(i).getUsername());
-            if (Talabat.owners.get(i).getUsername() == "Marioshafiek")
+            if (Talabat.owners.get(i).getUsername().equals(Name))
             
            {
                 valid = true;
