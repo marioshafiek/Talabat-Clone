@@ -89,6 +89,7 @@ public class Login extends JFrame{
                     {
                         dispose();
                         RestaurantMain res = new RestaurantMain();
+                        
                     }
                     else
                     {

@@ -30,6 +30,7 @@ public class ProfileOwner extends JFrame {
         this.setTitle("Owner Profile");
         this.setResizable(false);
         this.setLocation(380, 150);
+        setContentPanel(OwnerProfilePanel);
 
 
         //Initialization

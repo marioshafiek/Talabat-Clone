@@ -29,7 +29,9 @@ public class ProfileCutomer extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setTitle("Customer Profile");
         this.setResizable(false);
+        this.setVisible(true);
         this.setLocation(380, 150);
+        setContentPanel(panel);
 
         //Initialize
         //Initialize panel
@@ -199,7 +201,7 @@ public class ProfileCutomer extends JFrame {
         BG.setIcon(BackGorund);
 
         // ADD Events
-            this.setVisible(true);
+            
 
 
 
