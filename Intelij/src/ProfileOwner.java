@@ -29,7 +29,8 @@ public class ProfileOwner extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setTitle("Owner Profile");
         this.setResizable(false);
-        this.setLocation(200,70);
+        this.setLocation(380, 150);
+
 
         //Initialization
         // Initialize panel
@@ -273,6 +274,10 @@ public class ProfileOwner extends JFrame {
         BackG.setIcon(BG);
 
 
+    }
+
+    private void setContentPanel(JPanel OwnerProfilePanel) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 

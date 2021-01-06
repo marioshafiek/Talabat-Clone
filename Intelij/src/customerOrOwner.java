@@ -27,7 +27,7 @@ public class customerOrOwner extends JFrame implements ActionListener {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setTitle("Customer or Owner");
         this.setResizable(false);
-        this.setLocation(200,70);
+        this.setLocation(380, 150);
 
         //Initialize
         //Initialize panel

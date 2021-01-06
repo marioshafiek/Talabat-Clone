@@ -18,22 +18,24 @@ public class ProfileCutomer extends JFrame {
     ImageIcon subimtBUTT = new ImageIcon("Designs/Porfile customer page asset/Asset/Submit Butt.png");
     ImageIcon BGForOrder = new ImageIcon("Designs/Porfile customer page asset/Asset/BG for order.png");
     ImageIcon BGForInfo = new ImageIcon("Designs/Porfile customer page asset/Asset/BG 2 for data.png");
+    
 
 
     public ProfileCutomer(Customer customer)
     {
         //Setup for frame
         this.setSize(1080,750);
-        this.setVisible(true);
+        
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setTitle("Customer Profile");
         this.setResizable(false);
-        this.setLocation(200,70);
+        this.setLocation(380, 150);
 
         //Initialize
         //Initialize panel
         panel = new JPanel();
         add(panel);
+
 
         //Initialize labels
         talabat = new JLabel("Talabat");
@@ -197,10 +199,14 @@ public class ProfileCutomer extends JFrame {
         BG.setIcon(BackGorund);
 
         // ADD Events
+            this.setVisible(true);
 
 
 
+    }
 
+    private void setContentPanel(JPanel panel) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 

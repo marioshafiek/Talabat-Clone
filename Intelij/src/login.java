@@ -47,6 +47,7 @@ public class Login extends JFrame{
         this.setSize(1024, 720);
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setLocation(380, 150);
 
 
         loginbut.setIcon(login);
@@ -70,8 +71,7 @@ public class Login extends JFrame{
                     if(validation==true)
                     {
                        dispose();
-                       //ProfileOwner pO = new ProfileOwner(Talabat.owners.get(Owner.foundOwner));
-                       ProfileOwner PO = new ProfileOwner(Talabat.owners.get(0));
+                       RestaurantMain res = new RestaurantMain();
                        
                     } else
                     {
@@ -88,7 +88,7 @@ public class Login extends JFrame{
                     if(validation==true)
                     {
                         dispose();
-                        ProfileCutomer pC = new ProfileCutomer(Talabat.customers.get(Customer.foundCustomer));
+                        RestaurantMain res = new RestaurantMain();
                     }
                     else
                     {
@@ -119,7 +119,6 @@ public class Login extends JFrame{
         leftpanel.setBounds(0, 0, 500, 720);
         leftpanel.setBackground(c);
         this.setResizable(false);
-        this.setLocation(200,70);
 
         // logo (talabat) properties
         llogo.setBounds(15, 15, 200, 50);

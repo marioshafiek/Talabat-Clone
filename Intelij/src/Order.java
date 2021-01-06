@@ -28,7 +28,11 @@ public class Order {
     private String order_date;
     private Meal meal;
  
-    //setters and getters
+    
+    public Order(Meal meal)
+    {
+        
+    }
 
     public Order(int quantity, String additional_note, String order_date, Meal meal) {
         this.quantity = quantity;
@@ -36,6 +40,8 @@ public class Order {
         this.order_date = order_date;
         this.meal = meal;
     }
+    
+    //setters and getters
 
 
     public void setQuantity(int quantity) {

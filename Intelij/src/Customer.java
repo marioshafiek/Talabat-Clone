@@ -27,6 +27,8 @@ public class Customer extends Person{
     private String address;
     private ArrayList<Order> order = new ArrayList<Order>();
     public static int foundCustomer = 0;
+    public static int Order = 0;
+   
 
     public Customer(String username, String password) {
         super(username, password);
@@ -69,7 +71,7 @@ public class Customer extends Person{
         for (int i = 0; i < Talabat.customers.size(); i++) {
             System.out.println("Found00");
             System.out.println(Talabat.customers.get(i).getUsername());
-            if (Talabat.customers.get(i).getUsername()==Name)
+            if (Talabat.customers.get(i).getUsername().equals(Name)&&Talabat.customers.get(i).getPassword().equals(password))
             {
                 valid = true;
                 System.out.println("Found");
@@ -91,9 +93,9 @@ public class Customer extends Person{
         this.mob_number=mob_number;
 
     }
-    public void makeOrder(Meal meal, int quantity, String note, String date)
+    public void makeOrder(Meal meal)
     {
-       Order order = new Order(quantity,note,date,meal);
+       Order order = new Order(meal);
        this.order.add(order);
        for(int i=0; i<Talabat.owners.size();i++)
        {

@@ -1,9 +1,11 @@
 
 import java.awt.* ;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.* ;
 
-public class SignupOwner extends JFrame{
+public class SignupOwner extends JFrame implements ActionListener {
     JPanel p1 = new JPanel() ;
     JPanel p2 = new JPanel() ;
     JLabel logo , lsignup , luser , lpassword , lrestaurant   ;
@@ -42,7 +44,7 @@ public class SignupOwner extends JFrame{
         this.setSize(1024, 720);
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+        this.setLocation(380, 150); 
 
         lperson.setIcon(person);
         lperson.setBounds(100, 150, 351, 351);
@@ -56,6 +58,7 @@ public class SignupOwner extends JFrame{
         signupbut.setBorderPainted(false);
         signupbut.setContentAreaFilled(false);
         signupbut.setBounds(650, 525, 238, 66);
+        signupbut.addActionListener(this);
 
 
         p1.setLayout(null);
@@ -134,9 +137,6 @@ public class SignupOwner extends JFrame{
 
         p2.add(signupbut);
 
-
-
-
         p2.add(rbgbut);
 
 
@@ -144,5 +144,17 @@ public class SignupOwner extends JFrame{
     }
 
 
-
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(e.getSource()==signupbut)
+        {
+            Owner owner = new Owner();
+            owner.setUsername(tuser.getText());
+            owner.setPassword(tpass.getText());
+            owner.restaurant.setName(trestaurant.getText());
+            Talabat.owners.add(owner);
+            this.dispose();
+            Login login = new Login();
+        }
+    }
 }

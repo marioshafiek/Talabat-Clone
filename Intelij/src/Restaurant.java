@@ -24,6 +24,9 @@ public class Restaurant {
     private String  name; 
     private String address;
     private String phone;
+    private String description;
+
+  
     public ArrayList<Meal> meals = new ArrayList<Meal>();   /*to get all the meals of the restaurant  */
     public ArrayList<Order> orders = new ArrayList<Order>();
     private int ID;
@@ -59,6 +62,13 @@ public class Restaurant {
     public void setID(int ID) {
         this.ID = ID;
     }
+      public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
     
 
 
@@ -80,13 +90,14 @@ public class Restaurant {
 
     }
 
-    public void addmeal(String name, String description, float price){
+    public void addmeal(String name, String description, float price, int ID){
 
            Meal newMeal = new Meal();//create a new object from class meal
            //to set the the input that the user entered
            newMeal.setName(name);
            newMeal.setPrice(price);
            newMeal.setDescription(description);
+           newMeal.setID(ID);
            meals.add(newMeal);// a method in class ArrayList
     }
     //a method to remove the meal

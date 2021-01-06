@@ -36,7 +36,7 @@ public class LoginOrsignUp extends JFrame implements ActionListener {
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);
-        this.setLocation(200,70);
+        this.setLocation(380, 150);
 
         //add image (bg) to a label (rbg)
         rbg.setIcon(bg);
@@ -56,6 +56,7 @@ public class LoginOrsignUp extends JFrame implements ActionListener {
         signbut.setBorderPainted(false);
         signbut.setContentAreaFilled(false);
         signbut.setBounds(740, 425, 237, 63);
+        signbut.addActionListener(this);
 
 
 
@@ -104,8 +105,19 @@ public class LoginOrsignUp extends JFrame implements ActionListener {
         {
             this.dispose();
             Login login = new Login();
-        
-            
+         
+        }
+        else if(e.getSource()==signbut)
+        {
+            this.dispose();
+            if(customerOrOwner.owner==true)
+            {
+                SignupOwner suO = new SignupOwner();
+            }
+            else if(customerOrOwner.owner==false)
+            {
+                SignupCustomer suC = new SignupCustomer();
+            }
         }
 
     }

@@ -1,9 +1,11 @@
 
 import java.awt.* ;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.* ;
 
-public class SignupCustomer extends JFrame{
+public class SignupCustomer extends JFrame implements ActionListener {
     JPanel p1 = new JPanel() ;
     JPanel p2 = new JPanel() ;
     JLabel logo , lsignup , luser , lpassword , lmobileno , ladress   ;
@@ -48,6 +50,7 @@ public class SignupCustomer extends JFrame{
         this.setSize(1024, 720);
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setLocation(380, 150);
 
 
         lpersonimage.setIcon(person);
@@ -62,6 +65,7 @@ public class SignupCustomer extends JFrame{
         signupbut.setBorderPainted(false);
         signupbut.setContentAreaFilled(false);
         signupbut.setBounds(650, 525, 238, 66);
+        signupbut.addActionListener(this);
 
 
         p1.setLayout(null);
@@ -169,5 +173,19 @@ public class SignupCustomer extends JFrame{
     }
 
 
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(e.getSource()==signupbut)
+        {
+            Customer customer = new Customer();
+            customer.setUsername(tuser.getText());
+            customer.setPassword(tpass.getText());
+            customer.setMob_number(tmobileno.getText());
+            customer.setAddress(tadress.getText());
+            Talabat.customers.add(customer);
+            this.dispose();
+            Login login = new Login();
 
+        }
+    }
 }

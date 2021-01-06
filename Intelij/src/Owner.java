@@ -46,11 +46,11 @@ public class Owner extends Person{
         boolean validation = true;
         
         
-            for (int i = 0; i < Talabat.owners.size(); i++) {
+            for (int i = 0; i < Talabat.owners.size(); i++) 
+            {
             System.out.println("Found00");
             System.out.println(Talabat.owners.get(i).getUsername());
-            if (Talabat.owners.get(i).getUsername().equals(Name))
-            
+            if (Talabat.owners.get(i).getUsername().equals(Name)&&Talabat.owners.get(i).getPassword().equals(password))
            {
                 valid = true;
                 System.out.println("Found");
